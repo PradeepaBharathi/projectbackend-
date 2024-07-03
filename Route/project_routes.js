@@ -26,7 +26,7 @@ router.post("/add-project",async(req,res)=>{
         if(!newProject.acknowledged){
             return res.status(400).json({message:"error occured"})
         }
-        return res.status(200).json({data:{projectname,startby,dueby,status},result:newProject})
+        return res.status(200).json({data:{projectname,startby,dueby,status},result:newProject,message:"Project Added"})
     } catch (error) {
         console.log(error)
         res.status(500).json({message:"server error"})
@@ -62,7 +62,7 @@ router.put("/edit/:id",async(req,res)=>{
             if(!editProject){
                 return res.status(400).json({message:"error occured"})
             }     
-            return res.status(201).json({data:updatedProject,status:editProject})  
+            return res.status(201).json({data:updatedProject,status:editProject,message:"Project Updated"})  
     } catch (error) {
         console.log(error)
         res.status(500).json({message:"server error"})
